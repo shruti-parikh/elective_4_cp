@@ -11,5 +11,12 @@
 
 
 def dicetoorderedhand(a, b, c):
-	# your code goes here
-	pass
+	x = sorted([a, b, c])
+	i = 3
+	tot= 0
+	while i > 0:
+		n = x[i-1]*10**(i-1)
+		tot += n
+		i = i -1
+	return tot
+	
