@@ -3,7 +3,9 @@
 # triangle that has those lengths of its side. If no such triangle exists, return 0. Hint: you
 # will probably wish to use Heron's Formula.
 
-
-def trianglearea(s1, s2, s3):
+import math
+def trianglearea(a, b, c):
 	# your code goes here
-	pass
+	s = (a+b+c)/2
+	area = math.sqrt(s*(s-a)*(s-b)*(s-c))
+	return area
