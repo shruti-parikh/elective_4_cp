@@ -6,4 +6,20 @@
 
 def lineintersection(m1, b1, m2, b2):
 	# your code goes here
-	pass
+	if(b1 == b2 or m1 == m2):
+		return None
+	elif(fun_ismultiple(m1,m2) or fun_ismultiple(m2,m1)):
+		return None
+	else:
+		return (b2-b1)/(m1-m2)
+def fun_ismultiple(m, n):
+	if m==0:
+		return True
+	elif n==0:
+		return False
+	elif m%n==0:
+		return True
+	else:
+		return False
+
+
