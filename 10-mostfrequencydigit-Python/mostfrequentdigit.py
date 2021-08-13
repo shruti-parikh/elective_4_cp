@@ -4,4 +4,17 @@
 
 def mostfrequentdigit(n):
 	# your code goes here
-	pass
+	digitcount = [0]*10
+	st = str(n)
+	max_count = 0
+	res = 0
+	for i in st:
+		digitcount[int(i)]+= 1
+	for num, count in enumerate(digitcount):
+		if count > max_count:
+			max_count = count
+			res = num
+	return res
+
+
+		
