@@ -6,4 +6,12 @@
 
 def smallestdifference(a):
 	# Your code goes here
-	pass
+	if len(a) == 0:
+		return -1
+	a.sort()
+	minDiff = a[1]-a[0]
+	i = 2
+	while i != len(a):
+		minDiff = min(minDiff, a[i]- a[i-1])
+		i += 1
+	return minDiff
