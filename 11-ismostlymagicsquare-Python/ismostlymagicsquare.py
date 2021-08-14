@@ -14,5 +14,23 @@
 # Each row and each column add to 3, but one diagonal adds to 2 and the other to 4.
 
 def ismostlymagicsquare(a):
-	# Your code goes here
-	pass
+	n = len(a)
+	if n==1:
+		return True
+	d1 = 0
+	d2 = 0
+	for i in range(n):
+		d1 += a[i][i]
+		d2 += a[i][n-i-1]
+	srow = 0
+	scol = 0
+	for i in range(n):
+		for j in range(n):
+			srow += a[i][j]
+			scol += a[j][i]
+	if srow == scol == d1 == d2:
+		return True
+	else:
+		return False
+
+	
