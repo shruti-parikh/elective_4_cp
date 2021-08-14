@@ -5,6 +5,20 @@
 
 
 def fun_kth_occurrences(s, n):
-	return 'a'
+	d = dict()
+	for each in s:
+		if each not in d:
+			d[each] = 1
+		else:
+			d[each] += 1
+	count = sorted(d.values(), reverse = True)[n-1]
+	for key in d:
+		if d[key] == count:
+			return key
+	
+	
+	 
+		
+
 
 
