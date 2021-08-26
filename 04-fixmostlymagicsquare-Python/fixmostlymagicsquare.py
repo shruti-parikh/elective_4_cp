@@ -8,3 +8,18 @@
 
 def fixmostlymagicsquare(L):
 	# Your code goes here
+	n = len(L)
+	r = 0
+	c = 0
+	num = 0
+	if n == 1:
+		return True
+	for i in range(n):
+		for j in range(n):
+			r = r + L[i][j]
+			c = c + L[j][i]
+		if r!= c and num == 0:
+			num = 1
+			L[i][j] = L[i][j]-(r-c)
+	return L
+
