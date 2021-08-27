@@ -37,8 +37,3 @@ def recursion_binarysearchvalues(L, v):
 	res=[]
 	a= binarySearch(L,v,low,high,res)
 	return a
-
-
-
-	
-	
