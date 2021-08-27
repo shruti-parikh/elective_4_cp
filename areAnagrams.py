@@ -12,6 +12,27 @@
 
 def areAnagrams(s1, s2):
     # Your code goes here...
-    pass
+    s1=s1.lower()
+    s2=s2.lower()
+
+    lis = [0]*26
+    for each in s1:
+        index = ord(each) - ord('a')
+        lis[index] += 1
+    for each in s2:
+        count =  ord(each) - ord('a')
+        lis[count] -= 1
+    if sum(lis) == 0:
+        return True
+    else:
+        return False
+
+
 
 # write your test cases here...
+assert(areAnagrams('Acsa','scaa') == True)
+assert(areAnagrams('ASEDFR','asedrf') == True)
+assert(areAnagrams('kwswki','ikswwk') == True)
+assert(areAnagrams('Aswdr','asdf') == False)
+assert(areAnagrams('hyuj','hnukn') == False)
+print("All test cases passed... :-)")
