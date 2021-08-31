@@ -25,10 +25,50 @@
 # (without hardcoding any test cases):
 
 class DataColumn: 
-    pass
+    def __init__(self,datatable,columnIndex):
+        self.datatable = datatable
+        self.columnIndex = columnIndex
+        self.data = []
+        self.label = ''
+        for i,v in enumerate(self.datatable[0]):
+            if i == self.columnIndex:
+                self.label = v
+                for k in range(1,len(self.datatable)):
+                    self.data.append(self.datatable[k][i])
+    def average(self):
+        s = 0
+        c = 0
+        for i in self.data:
+            s = s+i
+            c = c+1
+        return s//c
 
 class DataTable:
-    pass
+        def __init__(self,csvstring): 
+            self.lst = []
+            j = []
+            csvstring = csvstring.replace('\n',',==,')
+            csvstring = csvstring.replace(" ",'')
+            v = []
+            j = csvstring.split(',')
+            for i in csvstring.split(","):
+                if i !="==":
+                    if i.isnumeric():
+                        i = int(i)
+                    v.append(i)
+                    print(v)
+                else:
+                    if v[0] != '':
+                        self.lst.append(v)
+                    v = []
+        def getDims(self):
+            r = len(self.lst)
+            c = len(self.lst[0])
+            print(r,c)
+            return r,c
+        def getColumn(self,val):
+            c = DataColumn(self.lst,val)
+            return c
 
 def almostEqual(a, b):
     return True
@@ -56,3 +96,4 @@ def testDataTableAndDataColumnClasses():
     assert(column4.data == [92, 100])
     assert(almostEqual(column4.average(), 96))
     print('All test cases passed....!')
+print(testDataTableAndDataColumnClasses())
